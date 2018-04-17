@@ -2,3 +2,25 @@ body{
     background-color: red;
 }
 
+#gauche {
+float:left;
+width: 700px
+}
+#droite {
+float:left;
+width: 650px
+}
+
+.form-control{
+    text-align: center;
+    background-color: white !important;
+}
+
+select{
+    width: 20px;
+    margin-left: 10000000px;
+}
+
+input{
+    width: 550px;
+}
