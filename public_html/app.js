@@ -69,7 +69,7 @@ function affichageCarte(listeDeCarte) {
     for (var i = 0; i < listeDeCarte.length; i++) {
         var nom = listeDeCarte[i].nom;
         var tr = $("<tr>");
-        $(tr).append($("<td>").text(nom).attr('onclick', 'getMenus('+ listeDeCarte[i].id +')'))
+        $(tr).append($("<td>").text(nom).attr('onclick', 'getMenus('+ listeDeCarte[i].id +')').attr('id', 'nomCarte'))
                 .append($("<td>").append($("<button>").addClass("btn btn-secondary").text("Modifier")))
                 .append($("<td>").append($("<button>").addClass("btn btn-danger").text("Supprimer").attr('onclick', 'deleteCard('+ listeDeCarte[i].id +')')));
         $(tbody).append(tr);
@@ -231,10 +231,29 @@ function addCarte(){
  }
  
 
+
 //fonction qui permet de supprimer une carte
- function deleteCard(){
+ function deleteCard(idCarte){
      
      
+
+        $.ajax({
+
+       type: "POST",
+
+       url: "http://192.168.1.60:10000/cartes/" + idCarte + "/remove",
+
+       data: 'json',
+       
+       //me retourne juste une carte dans "data"
+       success : function(data) {
+           
+           getCards();
+           alert("carte supprimer");
+           
+       }
+
+    });   
      
      
      
