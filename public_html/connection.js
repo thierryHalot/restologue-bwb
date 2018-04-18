@@ -1,4 +1,4 @@
-var ip = "http://192.168.1.36";
+var ip = "http://192.168.1.60";
 $(document).ready(function () {
     debug();
 });
